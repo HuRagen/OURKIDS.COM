@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="author" content="SemiColonWeb" />
+
+    <!-- Stylesheets
+	============================================= -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <link rel="stylesheet" href="css/dark.css" type="text/css" />
+    <link rel="stylesheet" href="css/font-icons.css" type="text/css" />
+    <link rel="stylesheet" href="css/animate.css" type="text/css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css" />
+
+    <link rel="stylesheet" href="css/responsive.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Document Title
+	============================================= -->
+    <title>Blog Single - Small Image Left Sidebar | Canvas</title>
+
+</head>
+
+<body class="stretched">
+
+    <!-- Document Wrapper
+	============================================= -->
+    <div id="wrapper" class="clearfix">
+
+        <!-- Page Title
+		============================================= -->
+        <section id="page-title">
+
+            <div class="container clearfix">
+                <h1>照片活動花絮</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../">首頁</a></li>
+                    <li class="breadcrumb-item"><a href="index.html">照片集</a></li>
+                </ol>
+            </div>
+
+        </section>
+        <!-- #page-title end -->
+        <div id="app">
+            <!-- Content
+		============================================= -->
+            <section id="content">
+
+                <div class="content-wrap">
+
+                    <div class="container clearfix">
+
+                        <div class="single-post nobottommargin">
+
+                            <!-- Single Post
+						============================================= -->
+                            <div class="entry clearfix">
+
+                                <!-- Entry Title
+							============================================= -->
+                                <div class="entry-title">
+                                    <h2>{{recordsImg.postTitle}}</h2>
+                                </div>
+                                <!-- .entry-title end -->
+
+                                <!-- Entry Meta
+							============================================= -->
+                                <ul class="entry-meta clearfix">
+                                    <li><i class="icon-calendar3"></i> {{recordsImg.postTimes}}</li>
+                                </ul>
+                                <!-- .entry-meta end -->
+
+                                <!-- Entry Image
+							============================================= -->
+                                <div class="entry-image bottommargin">
+                                    <img v-bind:src="recordsImg.postImg">
+                                </div>
+                                <!-- .entry-image end -->
+
+                                <!-- Entry Content
+							============================================= -->
+                                <div class="entry-content notopmargin">
+
+                                    <div v-html="recordsImg.postContent"></div>
+
+                                    <!-- Post Single - Content End -->
+
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <!-- .entry end -->
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+            <!-- #content end -->
+        </div>
+    </div>
+    <!-- #wrapper end -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <!-- Firebase LINK -->
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-database.js"></script>
+    <script src="../firebase.js"></script>
+    <script src="js/web/app.js"></script>
+    <!-- Go To Top
+	============================================= -->
+    <div id="gotoTop" class="icon-angle-up"></div>
+
+    <!-- External JavaScripts
+	============================================= -->
+    <script src="js/jquery.js"></script>
+    <script src="js/plugins.js"></script>
+
+    <!-- Footer Scripts
+	============================================= -->
+    <!-- <script src="js/functions.js"></script> -->
+
+</body>
+
+</html>
