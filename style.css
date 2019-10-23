@@ -932,7 +932,7 @@ a#scrollUp:hover {
 }
 
 .bg-image--11 {
-    background-image: url(images/bg/11.jpg);
+    background-image: url(images/bg/Cover.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -2977,6 +2977,13 @@ Blocks Styles
     .header--5 .mainmenu__wrapper {
         padding-bottom: 20px;
         padding-top: 20px;
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 991px) {
+    .jun__header__top__left {
+        display: none;
     }
 }
 
@@ -2999,6 +3006,7 @@ Blocks Styles
     .header--5 .mainmenu__wrapper {
         padding-bottom: 20px;
         padding-top: 20px;
+        display: none;
     }
 }
 
@@ -3006,6 +3014,7 @@ Blocks Styles
     .header--3 .mainmenu__wrapper {
         padding-bottom: 20px;
         padding-top: 20px;
+        display: none;
     }
 }
 
@@ -3194,15 +3203,15 @@ Blocks Styles
 .slider__btm__img-1 {
     bottom: 0;
     position: absolute;
-    right: -36px;
-    width: 651px;
+    bottom: 20%;
+    width: 1336px;
 }
 
 .slider__btm__img-2 {
     position: absolute;
     right: 15.5%;
     top: 0;
-    width: 329px;
+    width: 100%;
 }
 
 .slider--two .slide .slide__inner h1 {
@@ -3614,7 +3623,7 @@ Blocks Styles
         padding: 0;
     }
     .slider__btm__img-1 {
-        display: none;
+        /* display: none; */
     }
     .slider__btm__img-2 {
         display: none;
@@ -4516,7 +4525,14 @@ Blocks Styles
 
 .owl-carousel .owl-item img {
     margin: auto;
-    width: auto;
+    width: 100%;
+}
+
+@media only screen and (max-width: 991px) {
+    .owl-carousel .owl-item img {
+        margin: auto;
+        width: auto;
+    }
 }
 
 .testimonial__inner p {
