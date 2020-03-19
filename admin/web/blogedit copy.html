@@ -8,7 +8,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Ourkids Admin</title>
+    <title>Ourkis Admin</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
@@ -37,11 +37,10 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="../index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>系統管理</span></a>
             </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider" />
 
@@ -52,19 +51,19 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <!-- <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#indexMeneger" aria-expanded="true" aria-controls="indexMeneger">
-                    <i class="fab fa-chrome"></i>
-                    <span>首頁</span>
-                </a>
-                <div id="indexMeneger" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">首頁資料管理:</h6>
-                        <a class="collapse-item" href="web/bulletinmeneger.html">最新消息</a>
-                        <a class="collapse-item" href="web/faq.html">常見問題</a>
-                        <a class="collapse-item" href="web/content.html">內容文字</a>
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#indexMeneger" aria-expanded="true" aria-controls="indexMeneger">
+                        <i class="fab fa-chrome"></i>
+                        <span>首頁</span>
+                    </a>
+                    <div id="indexMeneger" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <h6 class="collapse-header">首頁資料管理:</h6>
+                            <a class="collapse-item" href="web/bulletinmeneger.html">最新消息</a>
+                            <a class="collapse-item" href="web/faq.html">常見問題</a>
+                            <a class="collapse-item" href="web/content.html">內容文字</a>
+                        </div>
                     </div>
-                </div>
-            </li> -->
+                </li> -->
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
@@ -75,7 +74,7 @@
                 <div id="businessMeneger" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">部落格資料管理:</h6>
-                        <a class="collapse-item" href="web/bloglist.html">部落格列表</a>
+                        <a class="collapse-item" href="bloglist.html">部落格列表</a>
                     </div>
                 </div>
             </li>
@@ -112,8 +111,8 @@
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-							<i class="fa fa-bars"></i>
-						</button>
+                                <i class="fa fa-bars"></i>
+                            </button>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -141,74 +140,41 @@
                     <div class="container-fluid">
                         <!-- Page Heading -->
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">系統管理</h1>
+                            <h1 class="h3 mb-0 text-gray-800">WEB部落格管理</h1>
                         </div>
 
                         <!-- Collapsable Card Example -->
                         <div class="card shadow mb-4">
                             <!-- Card Header - Accordion -->
-                            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCardExample">
+                            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
                                 <h6 class="m-0 font-weight-bold text-primary">
-                                    新增管理員
+                                    編輯部落格
                                 </h6>
                             </a>
                             <!-- Card Content - Collapse -->
-                            <div class="collapse " id="collapseCardExample">
+                            <div class="collapse show" id="collapseCardExample">
                                 <div class="card-body">
                                     <form class="user">
-                                        <div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="text" class="form-control form-control-user" v-model="form.managerName" placeholder="管理員名稱" />
+                                        <div class="form-group">
+                                            <h6>部落格標題</h6>
+                                            <div>
+                                                <input type="postTitle" class="form-control form-control-user" v-model="recordsImg.postTitle" placeholder="文章標題" />
                                             </div>
-                                            <div class="col-sm-6">
-                                                <input type="email" class="form-control form-control-user" v-model="form.managerEmail" placeholder="電子信箱" />
+                                            <br />
+                                            <h6>部落格主圖片</h6>
+                                            <div>
+                                                <img id="postImg" style=" width:200px " v-if="recordsImg.postImg" :src="recordsImg.postImg" />
                                             </div>
-                                        </div>
-                                        <div class="form-group row">
-                                            <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="password" class="form-control form-control-user" v-model="form.managerPassword" placeholder="密碼" />
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="password" class="form-control form-control-user" v-model="form.managerCheckPassword" placeholder="確認密碼" />
+                                            <div>
+                                                <input type="file" @change="fileSelected1" />
                                             </div>
                                         </div>
-                                        <a class="btn btn-primary btn-user btn-block" @click="addAdmin">
-												確認設置管理員
-											</a>
+                                        <textarea id="editor1"></textarea>
+                                        <br />
+                                        <a class="btn btn-primary btn-user btn-block" @click="updaterecordsImgForm(file)">
+                      更新部落格文章
+                    </a>
                                     </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- DataTales Example -->
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">
-                                    系統管理員列表
-                                </h6>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>姓名</th>
-                                                <th>Email</th>
-                                                <th>權限</th>
-                                                <!-- <th>設定</th> -->
-                                            </tr>
-                                        </thead>
-                                        <tbody id="managerList">
-                                            <tr v-for="item in list">
-                                                <td>{{ item.name }}</td>
-                                                <td>{{ item.email }}</td>
-                                                <td>{{ item.permission }}</td>
-                                                <!-- <td>
-                                                    <a><i class="fas fa-trash-alt" @click="deleteManager(item.email)"></i></a>
-                                                </td> -->
-                                            </tr>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -244,31 +210,34 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">確定登出用戶？</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
+                                <span aria-hidden="true">×</span>
+                            </button>
                 </div>
                 <div class="modal-body">
                     選擇“登出”將會為您叫跳轉回登入介面
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">
-							取消
-						</button>
+                                取消
+                            </button>
                     <a class="btn btn-primary" href="login.html" onclick="signout();return false;">登出</a>
                 </div>
             </div>
         </div>
     </div>
+
     <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js'></script>
+
     <!-- Firebase LINK -->
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-firestore.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.4/firebase-storage.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
-    <script src="js/firebase.js"></script>
-    <script src="js/app/app.js"></script>
+    <script src="../js/firebase.js"></script>
+    <script src="js/app/recapp.js"></script>
     <!-- icon sreach : https://victor-valencia.github.io/bootstrap-iconpicker/ -->
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -286,6 +255,19 @@
 
     <!-- Page level custom scripts -->
     <!-- <script src="js/demo/datatables-demo.js"></script> -->
+
+    <!-- CK Editor -->
+    <script src="ckeditor/ckeditor.js"></script>
+
+    <script>
+        $(function() {
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+            CKEDITOR.replace("editor1", {
+                customConfig: "/config.js"
+            });
+        });
+    </script>
 </body>
 
 </html>

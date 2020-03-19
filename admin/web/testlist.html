@@ -41,6 +41,7 @@
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>系統管理</span></a>
             </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider" />
 
@@ -74,7 +75,21 @@
                 <div id="businessMeneger" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">部落格資料管理:</h6>
-                        <a class="collapse-item" href="bloglist.html">部落格列表</a>
+                        <a class="collapse-item" href="/admin/web/bloglist.html">部落格列表</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#testMeneger" aria-expanded="true" aria-controls="testMeneger">
+                    <i class="fas fa-business-time"></i>
+                    <span>線上測驗</span>
+                </a>
+                <div id="testMeneger" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">線上測驗資料管理:</h6>
+                        <a class="collapse-item" href="/admin/web/testlist.html">線上測驗列表</a>
                     </div>
                 </div>
             </li>
@@ -126,41 +141,84 @@
                     <div class="container-fluid">
                         <!-- Page Heading -->
                         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                            <h1 class="h3 mb-0 text-gray-800">WEB部落格管理</h1>
+                            <h1 class="h3 mb-0 text-gray-800">Ourkids測驗管理</h1>
                         </div>
 
                         <!-- Collapsable Card Example -->
                         <div class="card shadow mb-4">
                             <!-- Card Header - Accordion -->
-                            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
+                            <a href="#collapseCardExample" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseCardExample">
                                 <h6 class="m-0 font-weight-bold text-primary">
-                                    編輯部落格
+                                    新增測驗內容
                                 </h6>
                             </a>
                             <!-- Card Content - Collapse -->
-                            <div class="collapse show" id="collapseCardExample">
+                            <div class="collapse " id="collapseCardExample">
                                 <div class="card-body">
                                     <form class="user">
                                         <div class="form-group">
-                                            <h6>部落格標題</h6>
+                                            <h6>測驗標題</h6>
                                             <div>
-                                                <input type="postTitle" class="form-control form-control-user" v-model="recordsImg.postTitle" placeholder="文章標題" />
+                                                <input type="postTitle" class="form-control form-control-user" v-model="testForm.Title" placeholder="測驗標題" />
+                                            </div>
+                                            <br>
+                                            <h6>測驗主題</h6>
+                                            <div>
+                                                <input type="postTitle" class="form-control form-control-user" v-model="testForm.theme" placeholder="測驗主題" />
+                                            </div>
+                                            <br>
+                                            <h6>測驗年齡層</h6>
+                                            <div>
+                                                <input type="postTitle" class="form-control form-control-user" v-model="testForm.age" placeholder="測驗年齡層" />
                                             </div>
                                             <br />
-                                            <h6>部落格主圖片</h6>
+                                            <h6>測驗主圖片</h6>
                                             <div>
-                                                <img id="postImg" style=" width:200px " v-if="recordsImg.postImg" :src="recordsImg.postImg" />
+                                                <img id="postImg" style=" width:200px " v-if="testForm.postImg" :src="testForm.postImg" />
                                             </div>
                                             <div>
-                                                <input type="file" @change="fileSelected1" />
+                                                <input type="file" @change="fileSelected2" />
                                             </div>
                                         </div>
-                                        <textarea id="editor1"></textarea>
+                                        <textarea id="editor2"></textarea>
                                         <br />
-                                        <a class="btn btn-primary btn-user btn-block" @click="updaterecordsImgForm(file)">
-                      更新部落格文章
-                    </a>
+                                        <a class="btn btn-primary btn-user btn-block" @click="addtestForm(testFormfile)">新增測驗</a>
                                     </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">
+                                    測驗列表
+                                </h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>標題</th>
+                                                <th>時間</th>
+                                                <th>內容</th>
+                                                <th>設定</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr v-for=" item in testFormList">
+                                                <td>{{ item.Title }}</td>
+                                                <td>{{ item.postTimes }}</td>
+                                                <td>
+                                                    <a><i class="fas fa-edit" @click="directTestContent(item.docId)"></i></a>
+                                                </td>
+                                                <td>
+                                                    <button v-on:click="deleteContent(item.docId)">刪除</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -250,6 +308,9 @@
             // Replace the <textarea id="editor1"> with a CKEditor
             // instance, using default configuration.
             CKEDITOR.replace("editor1", {
+                customConfig: "/config.js"
+            });
+            CKEDITOR.replace("editor2", {
                 customConfig: "/config.js"
             });
         });
