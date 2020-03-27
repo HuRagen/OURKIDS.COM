@@ -223,7 +223,9 @@ let vm = new Vue({
                                 postContent: ckdata,
                                 postTimes: moment().format('YYYY-MM-DD'),
                             });
-                        Swal.fire("更新成功", "", "success")
+                        Swal.fire("更新成功", "", "success").then((result) => {
+                            window.location.reload()
+                        })
                     } catch (error) {
                         console.error(error);
                     }
@@ -299,7 +301,11 @@ let vm = new Vue({
                         await db
                             .collection("TestBank")
                             .add(data);
-                        Swal.fire("更新成功", "", "success")
+
+                        window.location.reload()
+                        Swal.fire("更新成功", "", "success").then((result) => {
+                            window.location.reload()
+                        })
                     } catch (error) {
                         console.error(error);
                     }
@@ -372,7 +378,9 @@ let vm = new Vue({
                                 postContent: ckdata,
                                 postTimes: moment().format('YYYY-MM-DD'),
                             });
-                        Swal.fire("更新成功", "", "success")
+                        Swal.fire("更新成功", "", "success").then((result) => {
+                            window.location.reload()
+                        })
                     } catch (error) {
                         console.error(error);
                     }
@@ -448,7 +456,9 @@ let vm = new Vue({
                             .collection("TestBank")
                             .doc(this.testFormContent.docId)
                             .update(data);
-                        Swal.fire("更新成功", "", "success")
+                        Swal.fire("更新成功", "", "success").then((result) => {
+                            window.location.reload()
+                        })
                     } catch (error) {
                         console.error(error);
                     }
@@ -462,10 +472,22 @@ let vm = new Vue({
                     .doc(id)
                     .delete();
                 Swal.fire("刪除成功", "", "success").then((result) => {
-                    if (result.value) {
-                        this.redirect();
-                    }
-                });
+                    window.location.reload()
+                })
+            } catch (error) {
+                console.error(error);
+            }
+        },
+        async deleteTestContent(id) {
+            try {
+                await db
+                    .collection("TestBank")
+                    .doc(id)
+                    .delete();
+
+                Swal.fire("刪除成功", "", "success").then((result) => {
+                    window.location.reload()
+                })
             } catch (error) {
                 console.error(error);
             }
