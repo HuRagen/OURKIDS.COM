@@ -1917,7 +1917,7 @@ button.play__btn:hover {
     font-size: 16px;
     font-weight: 400;
     line-height: 25px;
-    padding: 0 22%;
+    padding: 5% 12%;
 }
 
 .section__title.white--title h2.title__line {
@@ -6643,7 +6643,7 @@ button.cartbox__item__remove:hover {
     }
     .popular__class__group .dacre__popular__classes .dc__popular__img {
         flex-basis: 44%;
-        width:50%;
+        width: 50%;
         height: 250px;
     }
     .popular__class__group .dacre__popular__classes .dc__popular__details {
