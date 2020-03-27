@@ -6643,6 +6643,8 @@ button.cartbox__item__remove:hover {
     }
     .popular__class__group .dacre__popular__classes .dc__popular__img {
         flex-basis: 44%;
+        width:50%;
+        height: 250px;
     }
     .popular__class__group .dacre__popular__classes .dc__popular__details {
         flex-basis: 56%;
