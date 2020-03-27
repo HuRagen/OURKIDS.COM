@@ -63,17 +63,17 @@
                         <div id="posts" class="post-grid grid-container clearfix" data-layout="fitRows">
 
                             <div class="entry clearfix" v-for="item in recordsImgList">
-                                <div class="entry-image">
+                                <div class="entry-image" @click="directContent(item.docId)" href="javascript:void(0)">
                                     <img v-bind:src="item.postImg">
                                 </div>
                                 <div class="entry-title">
-                                    <h2><a href="blog-single.html">{{item.postTitle}}</a></h2>
+                                    <h2><a href="javascript:void(0)" @click="directContent(item.docId)">{{item.postTitle}}</a></h2>
                                 </div>
                                 <ul class="entry-meta clearfix">
-                                    <li><i class="icon-calendar3"></i> {{item.postTimes}}</li>
+                                    <li @click="directContent(item.docId)"><i class="icon-calendar3" href="javascript:void(0)"></i> {{item.postTimes}}</li>
                                 </ul>
                                 <div class="entry-content">
-                                    <a @click="directContent(item.docId)" class="more-link">Read More</a>
+                                    <a href="javascript:void(0)" @click="directContent(item.docId)" class="more-link">Read More</a>
                                 </div>
                             </div>
 
