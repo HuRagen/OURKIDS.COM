@@ -3207,6 +3207,13 @@ Blocks Styles
     width: 1336px;
 }
 
+
+/* @media only screen and (min-width: 320px) and (max-width: 768px) {
+    .slider__btm__img-1 img {
+        width: 375px;
+    }
+} */
+
 .slider__btm__img-2 {
     position: absolute;
     right: 15.5%;
@@ -4528,10 +4535,10 @@ Blocks Styles
     width: 100%;
 }
 
-@media only screen and (max-width: 991px) {
+@media only screen and (max-width: 768px) and (min-width: 320px) {
     .owl-carousel .owl-item img {
         margin: auto;
-        width: auto;
+        width: 400px;
     }
 }
 
