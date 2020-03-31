@@ -190,7 +190,7 @@ let vm = new Vue({
                             console.log("Upload is running");
                             break;
                     }
-                    Swal.fire("上傳資料中")
+                    // 
                 },
                 function(error) {
                     // A full list of error codes is available at
@@ -209,7 +209,8 @@ let vm = new Vue({
                 },
                 async() => {
                     try {
-                        // Upload completed successfully, now we can get the download URL
+                        Swal.fire("上傳資料中")
+                            // Upload completed successfully, now we can get the download URL
                         var downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
                         // console.log('File available at', downloadURL)
                         console.log(downloadURL);
@@ -264,7 +265,7 @@ let vm = new Vue({
                             console.log("Upload is running");
                             break;
                     }
-                    Swal.fire("上傳資料中")
+
                 },
                 function(error) {
                     // A full list of error codes is available at
@@ -283,7 +284,8 @@ let vm = new Vue({
                 },
                 async() => {
                     try {
-                        // Upload completed successfully, now we can get the download URL
+                        Swal.fire("上傳資料中")
+                            // Upload completed successfully, now we can get the download URL
                         var downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
                         // console.log('testFormfile available at', downloadURL)
                         console.log(downloadURL);
@@ -344,7 +346,7 @@ let vm = new Vue({
                             console.log("Upload is running");
                             break;
                     }
-                    Swal.fire("上傳資料中")
+
                 },
                 function(error) {
                     // A full list of error codes is available at
@@ -363,7 +365,8 @@ let vm = new Vue({
                 },
                 async() => {
                     try {
-                        // Upload completed successfully, now we can get the download URL
+                        Swal.fire("上傳資料中")
+                            // Upload completed successfully, now we can get the download URL
                         var downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
                         // console.log('File available at', downloadURL)
                         console.log(downloadURL);
@@ -419,7 +422,7 @@ let vm = new Vue({
                             console.log("Upload is running");
                             break;
                     }
-                    Swal.fire("上傳資料中")
+
                 },
                 function(error) {
                     // A full list of error codes is available at
@@ -438,7 +441,8 @@ let vm = new Vue({
                 },
                 async() => {
                     try {
-                        // Upload completed successfully, now we can get the download URL
+                        Swal.fire("上傳資料中")
+                            // Upload completed successfully, now we can get the download URL
                         var downloadURL = await uploadTask.snapshot.ref.getDownloadURL();
                         // console.log('File available at', downloadURL)
                         console.log(downloadURL);
